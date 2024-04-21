@@ -14,7 +14,7 @@ cd plex-mediUx-title-cards
 ```
 
 3. Install Python requirments:
-```
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python plex_title_cards.py input_file.yaml [-c config.yaml]
+python plex-title-cards.py input_file.yaml [-c config.yaml]
 ```
 
 ### Input File
