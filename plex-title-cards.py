@@ -25,7 +25,12 @@ def upload_poters(yaml_file, plex_url, token):
                 upload_movie(id, data, library)
 
 def upload_show(tvdb_id, show_data, library):
-    show = library.getGuid(f"tvdb://{tvdb_id}")
+    try:
+        show = library.getGuid(f"tvdb://{tvdb_id}")
+    except:
+        print(f"Unable to find show with TVDB ID of {tvdb_id}")
+        return
+
     if 'url_poster' in show_data:
         show.uploadPoster(show_data['url_poster'])
         print(f"Poster uploaded successfully for '{show.title}'")
@@ -65,7 +70,12 @@ def upload_season(show, season_number, season_data):
             print(f"Poster uploaded successfully for S{season_number}E{episode_number} of '{show.title}'")
     
 def upload_movie(tmdb_id, movie_data, library):
-    movie = library.getGuid(f"tmdb://{tmdb_id}")
+    try:
+        movie = library.getGuid(f"tmdb://{tmdb_id}")
+    except:
+        print(f"Unable to find Movie with tmdb id of {tmdb_id}")
+        return
+
     if 'url_poster' in movie_data:
         movie.uploadPoster(movie_data['url_poster'])
         print(f"Poster uploaded successfully for '{movie.title}'")
