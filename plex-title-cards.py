@@ -1,5 +1,3 @@
-
-from pprint import pprint
 import yaml
 import argparse
 from plexapi.server import PlexServer
