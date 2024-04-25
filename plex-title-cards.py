@@ -3,7 +3,7 @@ import pprint
 import argparse
 from plexapi.server import PlexServer
 
-def upload_poters(yaml_file, plex_url, token):
+def upload_posters(yaml_file, plex_url, token):
     plex = PlexServer(plex_url, token)
 
     with open(yaml_file, 'r') as file:
@@ -94,4 +94,4 @@ if __name__ == "__main__":
     with open(args.config, 'r') as f:
         config_data = yaml.safe_load(f)
 
-    upload_poters(args.file, config_data['plex_url'], config_data['token'])
+    upload_posters(args.file, config_data['plex_url'], config_data['token'])
