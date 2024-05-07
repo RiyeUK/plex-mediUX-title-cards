@@ -48,7 +48,7 @@ def upload_show(tvdb_id, show_data, library):
 
 def upload_season(show, season_number, season_data):
     try:
-        season = show.season(season_number)
+        season = show.season(int(season_number))
     except:
         print(f"Season {season_number} not found for '{show.title}'")
         return
@@ -60,7 +60,7 @@ def upload_season(show, season_number, season_data):
     # Update episode posters
     for episode_number, episode_data in season_data.get('episodes', {}).items():
         try:
-            episode = season.episode(episode_number)
+            episode = season.episode(int(episode_number))
         except:
             print(f"No episode found for S{season_number}E{episode_number} of '{show.title}'")
             continue
