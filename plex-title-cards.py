@@ -40,11 +40,12 @@ def upload_show(tvdb_id, show_data, library):
 
     # Assume if there are no numbered seasons that the provided season is the first season
     seasons_data = show_data.get('seasons')
-    if sum(isinstance(key, int) for key in seasons_data.keys()) == 0:
-        seasons_data[1] = seasons_data
+    if seasons_data is not None:
+        if sum(isinstance(key, int) for key in seasons_data.keys()) == 0:
+            seasons_data[1] = seasons_data
 
-    for season_number, season_data in seasons_data.items():
-        upload_season(show, season_number, season_data)
+        for season_number, season_data in seasons_data.items():
+            upload_season(show, season_number, season_data)
 
 def upload_season(show, season_number, season_data):
     try:
